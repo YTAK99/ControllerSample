@@ -36,9 +36,7 @@ jobs:
         run: docker build -t $IMAGE_NAME:latest -t $IMAGE_NAME:$IMAGE_TAG .
 
       - name: Push Docker Images
-        run:
-          docker push $IMAGE_NAME:latest
-          docker push $IMAGE_NAME:$IMAGE_TAG
+        run: docker push $IMAGE_NAME:latest && docker push $IMAGE_NAME:$IMAGE_TAG
 
       - name: Show Docker Images
         run: docker images
